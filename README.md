@@ -1,27 +1,24 @@
-Simple Calculator Application
-Introduction
-What is your application?
+## Simple Calculator Application
+## Introduction
+## What is your application?
 The Simple Calculator is a Python-based graphical application that performs basic arithmetic operations. It has a user-friendly interface with buttons for digits, operators, and functions like clear (C), clear entry (CE), and quit (q). The application keeps track of the calculation history and the last result.
 
-How to run the program?
-To run the program, you need to have Python and Tkinter installed on your system. Save the code in a file named calculator.py and execute it using the following command:
-
-bash
-Kopijuoti kodą
-python calculator.py
-How to use the program?
+## How to run the program?
+To run the program, you need to have Python and Tkinter installed on your system. Save the code in a file named calculator.py and execute it:
+```python
+calculator.py
+```
+## How to use the program?
 Launch the application.
 Use the on-screen buttons or your keyboard to input numbers and operations.
 Click '=' or press Enter to see the result of your calculation.
-Use 'C' to clear the last character, 'CE' to clear the entire entry, and 'q' to quit the application.
+Use 'C' to clear the last character, 'CE' to clear the entire entry, "r" to clear history of your calculations and times calculator was opened and 'q' to quit the application.
 The result of the calculation and the history of operations will be displayed on the screen.
-Body/Analysis
+## Body/Analysis
 Functional Requirements Implementation
 Load and Save State
 The application saves the state, including the number of times the application was opened and the last result, in a file named calculator_state.txt. It loads this state when the application starts.
-
-python
-Kopijuoti kodą
+```python
 def load_state(self):
     # Load state from file
     ...
@@ -29,11 +26,11 @@ def load_state(self):
 def save_state(self):
     # Save state to file
     ...
-User Interface
+```
+## User Interface
 The UI is created using Tkinter, with buttons for digits, operations, and special functions. The history and display are implemented using Text and Entry widgets.
 
-python
-Kopijuoti kodą
+```python
 # Create history text widget
 self.history_text = tk.Text(...)
 
@@ -50,11 +47,10 @@ for (text, row, column) in buttons:
     button = tk.Button(self, ...)
     button.grid(row=row, column=column)
     ...
-Operations and Input Handling
+```
+## Operations and Input Handling
 Button clicks and keyboard inputs are handled to perform calculations. The application supports basic arithmetic operations, displaying results, and handling errors.
-
-python
-Kopijuoti kodą
+```python
 def on_button_click(self, text):
     # Handle button clicks
     ...
@@ -62,11 +58,10 @@ def on_button_click(self, text):
 def on_keyboard_input(self, event):
     # Handle keyboard inputs
     ...
-Code Snippets
+```
+## Code Snippets
 Load State Function:
-
-python
-Kopijuoti kodą
+```python
 def load_state(self):
     if hasattr(self, 'display'):
         self.display.delete(0, tk.END)
@@ -86,10 +81,11 @@ def load_state(self):
 
     if not hasattr(self, 'open_count'):
         self.open_count = 0
-Button Click Handler:
-
-python
-Kopijuoti kodą
+```
+## Error handling 
+error handling was done using try and exept and finally methods that were discussed during theory lessons which i found very usefull , you can find it in on_button_click method.
+on_button_click method:
+```python
 def on_button_click(self, text):
     try:
         self.display.config(state='normal')
@@ -144,28 +140,12 @@ def on_button_click(self, text):
         self.error_occurred = True
     finally:
         self.display.config(state='disabled')
-Results and Summary
-Results
-Successfully implemented a functional calculator with basic arithmetic operations.
-Implemented state saving and loading, allowing persistence between sessions.
-Created a user-friendly interface using Tkinter.
-Challenges
-Handling various edge cases in user input and ensuring the program does not crash.
-Managing the state of the display and history text widgets to ensure proper updates and user interactions.
-Conclusions
-This coursework achieved the development of a simple yet functional calculator application in Python. The application saves its state, provides a user-friendly interface, and handles various user inputs effectively. Future improvements could include more advanced mathematical functions, a better error handling mechanism, and an enhanced UI.
-
-Future Prospects
-Adding scientific calculator functions.
-Improving the error handling system.
-Enhancing the user interface with themes and animations.
-used OOP pillars
-1. Encapsulation
+```
+## Used OOP pillars
+## 1. Encapsulation
 Encapsulation involves bundling the data (attributes) and methods (functions) that operate on the data into a single unit, or class, and restricting access to some of the object's components.
-
-In your code, encapsulation is demonstrated through the use of instance variables and methods within the CalculatorApp class. For example:
-
-python
+In my code, encapsulation is demonstrated through the use of instance variables and methods within the CalculatorApp class. For example:
+```python
 class CalculatorApp(tk.Tk):
     def __init__(self):
         super().__init__()
@@ -182,15 +162,13 @@ class CalculatorApp(tk.Tk):
         # Create history text widgets
         self.history_text = tk.Text(self, width=40, height=5, font=("Segoe", 12), state='disabled')
         ...
-2. Abstraction
+```
+## 2. Abstraction
 Abstraction means hiding the complex implementation details and showing only the necessary features of the object.
-
 In your code, abstraction is achieved by defining methods that hide the implementation details of specific functionalities, such as load_state, save_state, on_button_click, on_keyboard_input, and reset_history.
-
 For example:
 
-python
-Kopijuoti kodą
+```python
 def load_state(self):
     if hasattr(self, 'display'):
         self.display.delete(0, tk.END)
@@ -210,33 +188,33 @@ def load_state(self):
 
     if not hasattr(self, 'open_count'):
         self.open_count = 0
-3. Inheritance
+```
+## 3. Inheritance
 Inheritance allows a class to inherit the properties and methods of another class.
 
 In your code, inheritance is shown by inheriting from the tk.Tk class, which provides all the necessary methods and properties for creating a Tkinter application:
 
-python
-Kopijuoti kodą
+```python
 class CalculatorApp(tk.Tk):
     def __init__(self):
         super().__init__()
         self.title("Simple Calculator")
         ...
-4. Polymorphism
+```
+## 4. Polymorphism
 Polymorphism allows methods to do different things based on the object it is acting upon, even though they share the same name.
 
 In your code, polymorphism is less explicitly visible since we don't see method overriding or method overloading directly. However, the use of the eval function to evaluate expressions dynamically can be considered a form of polymorphism:
 
-python
-Kopijuoti kodą
+```python
 if text == "=":
     expression = self.display.get()
     self.result = eval(expression)
     ...
+```
 Additionally, the on_button_click method can handle different types of button inputs in various ways based on the input text:
 
-python
-Kopijuoti kodą
+```python
 def on_button_click(self, text):
     ...
     if text in "+-*/":
@@ -253,3 +231,21 @@ def on_button_click(self, text):
         ...
     else:
         ...
+```
+## Results and Summary
+- Results
+- Successfully implemented a functional calculator with basic arithmetic operations.
+- Implemented state saving and loading, allowing persistence between sessions.
+- Created a user-friendly interface using Tkinter.
+- Added errors for missusing the calculator
+## Challenges
+- Handling various edge cases in user input and ensuring the program does not crash.
+- Managing the state of the display and history text widgets to ensure proper updates and user interactions.
+- Adding and evaluating errors , also limiting input options from not open textbox to only button inputs that are shown on the screen ( means you can enter only buttons that are displayed if a is not displayed the calculator will not register it)
+## Conclusions
+- This coursework achieved the development of a simple yet functional calculator application in Python. The application saves its state, provides a user-friendly interface, and handles various user inputs effectively. Future improvements could include more advanced mathematical functions, a better error handling mechanism, and an enhanced UI.
+
+## Future Prospects
+- Adding scientific calculator functions.
+- Improving the error handling system.
+- Enhancing the user interface with themes and animations.
