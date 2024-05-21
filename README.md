@@ -237,11 +237,11 @@ def on_button_click(self, text):
 - Successfully implemented a functional calculator with basic arithmetic operations.
 - Implemented state saving and loading, allowing persistence between sessions.
 - Created a user-friendly interface using Tkinter.
-- Added errors for missusing the calculator
+- Added errors for missusing the calculator.
 ## Challenges
 - Handling various edge cases in user input and ensuring the program does not crash.
 - Managing the state of the display and history text widgets to ensure proper updates and user interactions.
-- Adding and evaluating errors , also limiting input options from not open textbox to only button inputs that are shown on the screen ( means you can enter only buttons that are displayed if a is not displayed the calculator will not register it)
+- Adding and evaluating errors , also limiting input options from not open textbox to only button inputs that are shown on the screen ( means you can enter only buttons that are displayed if a is not displayed , the calculator will not register it)
 ## Conclusions
 - This coursework achieved the development of a simple yet functional calculator application in Python. The application saves its state, provides a user-friendly interface, and handles various user inputs effectively. Future improvements could include more advanced mathematical functions, a better error handling mechanism, and an enhanced UI.
 
