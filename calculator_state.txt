@@ -1,0 +1,2 @@
+times calculator was opened : 63
+last result : 0
