@@ -118,6 +118,7 @@ class CalculatorApp(tk.Tk):
                 self.destroy()
             elif text == "r":
                 self.reset_history()
+                self.open_count = 0  # Reset the open count when 'r' is pressed
             else:
                 # Clear error and append new input
                 if self.display.get() == "Max_Value":
